@@ -33,7 +33,25 @@
             /* Sikeres hívás esetén ez történjen */
             .done(function(response) {
                 /* Az iFrame-be betöltjük a linken található űrlapot */
-                jQuery('#' + frameid).prop('src',response);
+                if (response) {
+                    jQuery('#' + frameid).prop('src',response);
+                } else {
+                    /* Második hívás */
+                    jQuery.ajax({
+                        type: 'POST',
+                        url: 'http://link_to_your_script_2.php',  // másik listához tartozó php script
+                        data: data
+                    })
+                    /* Sikeres hívás esetén ez történjen */
+                    .done(function(response) {
+                        /* Az iFrame-be betöltjük a linken található űrlapot */
+                        jQuery('#' + frameid).prop('src',response);
+                    })
+                    /* A hiba esetet itt kezelhetjük */
+                    .fail(function() {
+                        console.log('hiba');
+                    });
+                }
             })
             /* A hiba esetet itt kezelhetjük */
             .fail(function() {
