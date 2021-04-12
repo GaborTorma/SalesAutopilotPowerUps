@@ -18,7 +18,13 @@
             var subscriberEmail = "somebody@somehost.com";
 
             /* Az email mellett a lista és az űrlap azonosítójára lesz szükség ahhoz, hogy az űrlapot meg tudjuk jeleníteni */
-            data = {
+            data1 = {
+                e: subscriberEmail,
+                l: listid,
+                f: formid
+            }
+
+            data2 = {
                 e: subscriberEmail,
                 l: listid,
                 f: formid
@@ -28,7 +34,7 @@
             jQuery.ajax({
                 type: 'POST',
                 url: 'http://link_to_your_script.php',
-                data: data
+                data: data1
             })
             /* Sikeres hívás esetén ez történjen */
             .done(function(response) {
@@ -40,7 +46,7 @@
                     jQuery.ajax({
                         type: 'POST',
                         url: 'http://link_to_your_script_2.php',  // másik listához tartozó php script
-                        data: data
+                        data: data2
                     })
                     /* Sikeres hívás esetén ez történjen */
                     .done(function(response) {
