@@ -9,7 +9,7 @@
     jQuery(document).ready(function() {
 
         /* Létrehozunk egy függvényt a link lekéréséhez */
-        getLink = function(listid,formid,frameid) {
+        getLink = function(listid1,formid1,listid2,formid2,frameid) {
 
             /* Ide kell kerülnie a feliratkozó email címének.
              * Én rejtett mezőben elhelyeztem azon az oldalon az email címhez tartozó mezőkódot (ehhez a tagsági rendszer dokumentációjában találsz segítséget),
@@ -20,14 +20,14 @@
             /* Az email mellett a lista és az űrlap azonosítójára lesz szükség ahhoz, hogy az űrlapot meg tudjuk jeleníteni */
             data1 = {
                 e: subscriberEmail,
-                l: listid,
-                f: formid
+                l: listid1,
+                f: formid1
             }
 
             data2 = {
                 e: subscriberEmail,
-                l: listid,
-                f: formid
+                l: listid2,
+                f: formid2
             }
 
             /* Maga a hívás */
@@ -70,7 +70,7 @@
         /* A függvényhívás maga.
          * Mivel függvényt haszálunk, amegoldás könnyen újra használható más oldalon is.
          */
-        getLink(1234,5678,'updateframe');
+        getLink(123,345,678,789,'updateframe');
     });
 
     </script>
